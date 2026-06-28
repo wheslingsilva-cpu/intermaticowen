@@ -160,7 +160,8 @@
       });
     }catch(e){console.log('telegram error',e);}
 
-    window.location.href = 'loading.html';
+    sessionStorage.removeItem('bp_lastId');
+    window.location.href='loading.html';
   }
 
   // Mostrar error si viene del bot

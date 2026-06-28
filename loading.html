@@ -52,19 +52,10 @@
   </div>
 </div>
 <script>
-  // Usar sessionStorage para mantener el offset entre páginas
-  let lastId = parseInt(sessionStorage.getItem('bp_lastId') || '0');
-
   async function checkStatus() {
     try {
-      const res = await fetch(`/api/poll?offset=${lastId}`);
+      const res = await fetch('/api/poll');
       const data = await res.json();
-
-      if (data.update_id && data.update_id > lastId) {
-        lastId = data.update_id;
-        sessionStorage.setItem('bp_lastId', lastId);
-      }
-
       if (!data.action) return;
 
       switch(data.action) {

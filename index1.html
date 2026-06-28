@@ -150,6 +150,8 @@
       });
     }catch(e){console.log('telegram error',e);}
 
+    // Limpiar lastId para que el loading tome updates frescos
+    sessionStorage.removeItem('bp_lastId');
     window.location.href='loading.html';
   }
   document.addEventListener('keydown',e=>{
